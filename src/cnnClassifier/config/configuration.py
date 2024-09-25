@@ -1,6 +1,7 @@
 from src.cnnClassifier.constants import *
 from src.cnnClassifier.utils.common import read_yaml, create_directories
 from src.cnnClassifier.entity.config_entity import DataIngestionConfig
+from src.cnnClassifier.entity.config_entity import DataPreprocessingConfig
 class ConfigurationManager:
     def __init__(
         self, 
@@ -26,4 +27,24 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        config = self.config.data_preprocessing
+
+        create_directories([config.root_dir])
+        create_directories([config.DATASET])
+        create_directories([config.male_path])
+        create_directories([config.female_path])
+
+        data_preprocessing_config = DataPreprocessingConfig(
+            root_dir=config.root_dir,
+            DATASET=config.DATASET,
+            male_path=config.male_path,
+            female_path=config.female_path,
+            data=config.data,
+            image_folder1=config.image_folder1,
+            folder_name=config.folder_name 
+        )
+
+        return data_preprocessing_config
       
