@@ -3,9 +3,9 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL1: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
-  source_URL2: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
-  local_data_file1: artifacts/data_ingestion/data1.zip
-  local_data_file2: artifacts/data_ingestion/data2.zip
+  source_URL: https://github.com/Arsalan-Azhar-AI/datasets/raw/refs/heads/main/knowing-person-images-zip.zip
+  #source_URL2: https://github.com/entbappy/Branching-tutorial/raw/master/Chicken-fecal-images.zip
+  local_data_file: artifacts/data_ingestion/data.zip
+  local_data_file2: /workspaces/End-to-End-Gender-Classification-project/celeba-dataset.zip
   unzip_dir: artifacts/data_ingestion
 
