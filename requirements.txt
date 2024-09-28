@@ -17,4 +17,5 @@ Flask-Cors
 kaggle
 opencv-python
 Pillow
+mlflow==2.2.2
 -e .

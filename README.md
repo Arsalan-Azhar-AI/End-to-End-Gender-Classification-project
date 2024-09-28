@@ -158,3 +158,10 @@ docker push chickenapp.azurecr.io/chicken:latest
 
 # search command for run tensorboard in terminal.
 # and search command for run dvc.
+
+
+
+
+
+
+
