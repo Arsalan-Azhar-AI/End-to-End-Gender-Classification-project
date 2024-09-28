@@ -161,6 +161,19 @@ docker push chickenapp.azurecr.io/chicken:latest
 
 
 
+# export MLFLOW_TRACKING_URI=https://dagshub.com/arsalanazhar2003/End-to-End-Gender-Classification-project.mlflow
+
+# export MLFLOW_TRACKING_USERNAME=arsalanazhar2003 
+
+# export MLFLOW_TRACKING_PASSWORD=ddbdda8eff3c518a6b060fc3d7a9cd36bc8c292d
+
+
+
+# run befor runing dvc. if the src path not found by dvc.
+# export PYTHONPATH=$PYTHONPATH:/workspaces/End-to-End-Gender-Classification-project/src
+
+
+
 
 
 

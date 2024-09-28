@@ -7,7 +7,6 @@ from src.cnnClassifier import logger
 import shutil
 from src.cnnClassifier.entity.config_entity import DataPreprocessingConfig
 
-
 class DataPreprocessing:
     def __init__(self, config: DataPreprocessingConfig):
         self.config = config
@@ -77,11 +76,21 @@ class DataPreprocessing:
                     os.remove(img_name)
         
     def knowing_person_images2(self):
-        main_folder=self.config.folder_name
+        main_folder = self.config.folder_name
         for sub_dirs in os.listdir(main_folder):
-            sub_dir_path=os.path.join(main_folder,sub_dirs)
-            shutil.move(sub_dir_path,self.config.DATASET)
+            sub_dir_path = os.path.join(main_folder, sub_dirs)
+            dest_dir_path = os.path.join(self.config.DATASET, sub_dirs)  # Define the destination path
+
+            # Check if the destination folder exists
+            if os.path.exists(dest_dir_path):
+                shutil.rmtree(dest_dir_path)  # Remove the existing destination folder
+                logger.info(f"Removed existing folder '{dest_dir_path}'")
+
+            shutil.move(sub_dir_path, self.config.DATASET)  # Move the source folder to destination
+            logger.info(f"Moved '{sub_dir_path}' to '{self.config.DATASET}'")
+
         logger.info(f"Knowing Person Data-preprocessing Done")
+
 
 
 

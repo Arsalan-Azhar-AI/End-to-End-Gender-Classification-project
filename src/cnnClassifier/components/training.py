@@ -88,7 +88,7 @@ class Training:
         self.model.fit(
             self.train_ds,
             validation_data=self.val_ds,
-            epochs=1,  # Adjust the number of epochs as needed
+            epochs=5,  # Adjust the number of epochs as needed
             callbacks=callback_list
         )
 

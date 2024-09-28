@@ -15,7 +15,7 @@ stages:
       - src/cnnClassifier/pipeline/stage_02_data_preprocessing.py
       - config/config.yaml
     outs:
-      - artifacts/stage_02_data_preprocessing/DATASET
+      - artifacts/data_preprocessing/DATASET
       
 
   prepare_base_model:
@@ -63,6 +63,6 @@ stages:
     params:
       - IMAGE_SIZE
       - BATCH_SIZE
-    metrics:
-    - metrics.json:
-        cache: false
+    outs:
+      - artifacts/model_evaluation/metrics.json
+      
