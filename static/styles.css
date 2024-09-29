@@ -51,3 +51,27 @@ h1 {
     margin-top: 20px;
     display: none;
 }
+/* Predict Button Styling */
+.register {
+    background-color: #28a745; /* A pleasing green color */
+    color: white; /* White text */
+    font-size: 1.2rem; /* Slightly larger text */
+    padding: 12px 24px; /* Padding to make the button look substantial */
+    border-radius: 50px; /* Rounded edges for a modern look */
+    border: none; /* Removing border for cleaner design */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    margin-top: 20px; /* Margin from the top */
+}
+
+.register:hover {
+    background-color: #218838; /* Darker green on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.register:active {
+    background-color: #1e7e34; /* Even darker green when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Smaller shadow when pressed */
+    transform: scale(0.98); /* Slight shrink effect on click */
+}
