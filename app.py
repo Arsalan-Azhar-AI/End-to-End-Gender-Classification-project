@@ -35,10 +35,16 @@ def trainRoute():
 @app.route("/predict", methods=['POST'])
 @cross_origin()
 def predictRoute():
-    image = request.json['image']
-    decodeImage(image, clApp.filename)
+    # Get the uploaded image file from the request
+    image = request.files['file']
+    image.save(clApp.filename)  # Save the image with the same filename
+    
+    # Run the prediction on the saved image
     result = clApp.classifier.predict()
+    
+    # Return the result as a JSON response
     return jsonify(result)
+
 
 
 if __name__ == "__main__":

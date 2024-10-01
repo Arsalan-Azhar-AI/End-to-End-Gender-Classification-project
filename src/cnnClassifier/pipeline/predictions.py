@@ -28,5 +28,31 @@ class PredictionPipeline:
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis = 0)
         result = model.predict(test_image)
-        return (class_names[np.argmax(result)])
+        #return (class_names[np.argmax(result)])
+        result=class_names[np.argmax(result)]
 
+        if result[:2] == 'M(':
+                    return ({
+                    "gender": "Male",
+                    "status": f"He is knowing person. \nHis name is {result[2:-1]}"
+                    })
+        elif result[:2] == 'F(':
+            return ({
+                    "gender": "Femal",
+                    "status": f"She is knowing one. \nHer name is {result[2:-1]}"
+                    })
+        elif result == 'male':
+                    return ({
+                    "gender": "Male",
+                    "status": f"He is Unknown person."
+                    })
+        elif result == 'female':
+                return ({
+                "gender": "Female",
+                "status": f"She is Unknown."
+                })
+        else:
+            return ({
+            "gender": "Not Recognize.",
+            "status": f"Not Recognize."
+            })

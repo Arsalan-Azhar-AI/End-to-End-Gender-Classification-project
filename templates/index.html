@@ -54,24 +54,22 @@
             <p class="lead">Upload an image and get real-time gender classification and identity recognition.</p>
         </div>
     </header>
-    <form class="form-detail" action="/predict" method="post">
-    <!-- Upload Section -->
-    <div class="container py-5">
-        <h1 class="text-center mb-4">Upload or Drag and Drop an Image</h1>
-
-        <div class="upload-area" id="uploadArea" role="button" tabindex="0" aria-label="Upload Area">
-            <img src="https://image.flaticon.com/icons/svg/136/136549.svg" alt="Upload Icon">
-            <p>Drag & Drop your image here or <strong>click to upload</strong></p>
-            <input type="file" id="fileInput" accept="image/*" aria-label="Image File Input">
-        </div>
-
-        <img id="uploadedImage" class="uploaded-image" src="#" alt="Uploaded Image Preview">
-        <div class="form-row-last">
-            <input type="submit" name="register" class="register" value="Predict">
-        </div>
+    <form id="uploadForm" class="form-detail" method="post">
+        <div class="container py-5">
+            <h1 class="text-center mb-4">Upload or Drag and Drop an Image</h1>
+            <div class="upload-area" id="uploadArea" role="button" tabindex="0" aria-label="Upload Area">
+                <img src="https://image.flaticon.com/icons/svg/136/136549.svg" alt="Upload Icon">
+                <p>Drag & Drop your image here or <strong>click to upload</strong></p>
+                <input type="file" id="fileInput" name="file" accept="image/*" aria-label="Image File Input">
+            </div>
     
-    </div>
-</form>
+            <img id="uploadedImage" class="uploaded-image" src="#" alt="Uploaded Image Preview">
+            <div class="form-row-last">
+                <button type="submit" class="register">Predict</button>
+            </div>
+        </div>
+    </form>
+    
     <!-- Result Section -->
     <section class="py-5 bg-light">
         <div class="container text-center">
@@ -83,7 +81,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Features Section -->
     <section class="py-5">
         <div class="container text-center">
@@ -135,5 +133,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+<script>
+    // Handle form submission
+document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();  // Prevent the form from submitting the traditional way
 
+    // Get the file input
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Please upload an image");
+        return;
+    }
+
+    // Create FormData object to send the file
+    const formData = new FormData();
+    formData.append('file', file);
+
+    // Send the file using Fetch API
+    const response = await fetch('/predict', {
+        method: 'POST',
+        body: formData
+    });
+
+    // Get the result from the Flask backend
+    const result = await response.json();
+
+    // Display the result in the HTML
+    document.getElementById('genderOutput').innerText = result.gender;
+    document.getElementById('statusOutput').innerText = result.status;
+
+    // Show the result section
+    document.getElementById('result').classList.remove('d-none');
+});
+
+</script>
 </html>
