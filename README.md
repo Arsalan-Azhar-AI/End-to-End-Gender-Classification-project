@@ -165,14 +165,7 @@ docker push chickenapp.azurecr.io/chicken:latest
 # export PYTHONPATH=$PYTHONPATH:/workspaces/End-to-End-Gender-Classification-project/src
 
 
-
-codespaces-zany-rotary-phone-97x6vrqw5pg2p5p5@zany-rotary-phone-97x6vrqw5pg2p5p5 -<random-string>.vscode-codespaces.net
-
-codespaces-user-repo-abc123@user-repo-abc123-xyz789.vscode-codespaces.net
-
-
-scp -r codespaces-zany-rotary-phone-97x6vrqw5pg2p5p5@zany-rotary-phone-97x6vrqw5pg2p5p5.vscode-codespaces.net:/workspaces/End-to-End-Gender-Classification-project C:\Users\K Tech\Documents
-
+ 
 
 
 
