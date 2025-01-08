@@ -162,10 +162,11 @@ cython_debug/
 #.idea/
 
 
-artifacts/*
-CelebA.json
 
-config/*
+
+
+
 
 
 celeba-dataset.zip/*
+artifacts/data_ingestion
